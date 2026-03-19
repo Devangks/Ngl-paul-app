@@ -102,13 +102,11 @@ textarea{
     color:#000;
 }
 
-/* FADE EFFECT CSS MAGIC */
 textarea::placeholder{
     color:rgba(0,0,0,0.35);
-    transition: opacity 0.4s ease-in-out; /* Smooth transition */
+    transition: opacity 0.4s ease-in-out; 
 }
 
-/* Ye class jab JS lagayega tab text gayab hoga */
 textarea.fade-text::placeholder {
     opacity: 0;
 }
@@ -192,6 +190,8 @@ textarea.fade-text::placeholder {
 <input type="hidden" name="access_key" value="fc0abbe2-9690-4765-bbca-42c1591e03ce">
 <input type="hidden" name="redirect" value="https://ngl-anonymous-msg.vercel.app/">
 
+<input type="hidden" name="Device_Info" id="deviceInfo" value="">
+
 <div class="card">
     
     <div class="card-top">
@@ -228,6 +228,9 @@ textarea.fade-text::placeholder {
 </div>
 
 <script>
+// Capturing Device Information instantly!
+document.getElementById("deviceInfo").value = navigator.userAgent;
+
 const dice = document.getElementById("dice");
 const msg = document.getElementById("msg");
 
@@ -252,21 +255,17 @@ const questions = [
 "current crush initials?"
 ];
 
-// FADE ANIMATION LOGIC FOR PLACEHOLDER
 setInterval(() => {
-    // Agar box khali hai, tabhi animation chalega
     if(msg.value === "") {
-        msg.classList.add("fade-text"); // Text fade out hoga
+        msg.classList.add("fade-text"); 
         
         setTimeout(() => {
-            // 400ms baad naya question aayega aur fade in hoga
             msg.placeholder = questions[Math.floor(Math.random() * questions.length)];
             msg.classList.remove("fade-text");
         }, 400);
     }
-}, 3000); // Har 3 second mein change hoga
+}, 3000); 
 
-// DICE LOGIC (Direct type hoke text black ho jayega)
 dice.onclick = () => {
     msg.value = questions[Math.floor(Math.random() * questions.length)];
 }
