@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NGL | Sent!</title>
-<link rel="icon" type="image/jpeg" href="Ngl.jpeg">
-<meta name="theme-color" content="#ec006c">
+<title>NGL - Sent!</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
@@ -18,89 +16,107 @@
     font-family:'Inter',sans-serif;
 }
 
+/* FULL SCREEN GRADIENT */
 body{
-    min-height:100vh;
+    height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
-    padding:25px 20px;
-    background: linear-gradient(135deg, #ff0f7b 0%, #f89b29 100%);
-    background-attachment: fixed;
+    justify-content:center;
+    background: linear-gradient(135deg,#ff0f7b,#ff7a18);
+    color:white;
 }
 
-.card{
-    background:#ffffff;
-    width:100%;
-    max-width:360px;
-    border-radius:30px;
-    padding:50px 20px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* BACK ARROW */
+.back{
+    position:absolute;
+    top:20px;
+    left:20px;
+    font-size:26px;
+    cursor:pointer;
+    opacity:0.9;
 }
 
-@keyframes popIn {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+/* CHECK ICON */
+.circle{
+    width:120px;
+    height:120px;
+    background:#eee;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
 }
 
-.icon{ font-size:55px; margin-bottom:15px; }
+.tick{
+    font-size:60px;
+    color:#ff2e63;
+}
 
+/* TEXT */
 .title{
-    font-size:1.8rem;
-    font-weight:900;
-    color:#000;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.sub{
+    font-size:15px;
+    opacity:0.9;
     margin-bottom:30px;
 }
 
-.send-more{
-    display:inline-block;
-    padding:16px 30px;
-    background:#f1f5f9;
-    color:#0f172a;
-    font-weight:800;
-    font-size:1rem;
-    text-decoration:none;
-    border-radius:50px;
-    transition: 0.2s;
-}
-
-.send-more:active {
-    transform: scale(0.95);
-    background: #e2e8f0;
-}
-
-.bottom-wrapper {
-    width: 100%;
-    max-width: 360px;
-    margin-top: 40px;
-}
-
-.get-own{
-    width:100%;
-    padding:20px;
+/* MAIN BUTTON */
+.btn{
+    width:80%;
+    max-width:320px;
+    padding:16px;
+    border-radius:40px;
     border:none;
-    border-radius:50px;
     background:black;
     color:white;
-    font-weight:900;
-    font-size:1.1rem;
+    font-weight:800;
+    font-size:16px;
+    margin-bottom:20px;
     cursor:pointer;
+    transition:0.2s;
+}
+
+.btn:active{
+    transform:scale(0.96);
+}
+
+/* LINK */
+.link{
+    color:white;
+    text-decoration:underline;
+    font-size:15px;
 }
 </style>
 </head>
+
 <body>
 
-    <div class="card">
-        <div class="icon">✅</div>
-        <div class="title">Sent!</div>
-        <a href="https://ngl-anonymous-msg.vercel.app/" class="send-more">Send another message</a>
-    </div>
+<div class="back" onclick="history.back()">←</div>
 
-    <div class="bottom-wrapper">
-        <button class="get-own">Get your own messages!</button>
-    </div>
+<div class="circle">
+    <div class="tick">✔</div>
+</div>
+
+<div class="title">Sent!</div>
+
+<div class="sub">👇 216 friends just tapped the button 👇</div>
+
+<button class="btn" onclick="redirect()">Get your own messages!</button>
+
+<a href="index.html" class="link">Send another message</a>
+
+<script>
+function redirect(){
+    window.location.href = "https://ngl.link/";
+}
+</script>
 
 </body>
 </html>
